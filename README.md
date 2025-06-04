@@ -226,7 +226,6 @@ $stmt->execute([$email]);
 1. **Error de conexión a la BD**: Al principio tenía problemas con Docker, tuve que cambiar el host de 'localhost' a 'mariadb'
 2. **Sesiones que no funcionaban**: No tenía `session_start()` en todos los archivos que lo necesitaban
 3. **Imágenes que no se veían**: Problemas con las rutas, las puse en una carpeta uploads/
-4. **Responsive**: Tuve que usar Bootstrap para que se viera bien en móviles
 
 ## 🔧 Cosas que me gustaría mejorar
 
@@ -239,20 +238,19 @@ $stmt->execute([$email]);
 
 ## 📱 Capturas del proyecto
 
-*Aquí podrías añadir algunas capturas de pantalla de tu aplicación*
+
 
 ## 👨‍💻 Sobre mí
 
 Este es mi primer proyecto grande con PHP y MySQL. He aprendido mucho haciéndolo, especialmente sobre:
 - Cómo estructurar un proyecto web
 - Trabajar con bases de datos
-- Manejar sesiones y cookies
-- Hacer páginas responsive
+- Manejar sesiones
 - Usar Docker para desarrollo
 
 ## 🎓 Conclusión
 
-SoccerStore ha sido un proyecto muy interesante donde he podido aplicar todo lo que he aprendido durante la carrera. Aunque no es perfecto, estoy contento con el resultado y creo que demuestra que puedo desarrollar una aplicación web completa desde cero.
+SoccerStore ha sido un proyecto muy interesante donde he podido aplicar todo lo que he aprendido durante el módulo. Aunque no es perfecto, estoy contento con el resultado y creo que demuestra que puedo desarrollar una aplicación web completa desde cero.
 
 ---
 
