@@ -1,787 +1,269 @@
-# ⚽ SoccerStore - E-commerce de Artículos de Fútbol
+# ⚽ SoccerStore - Mi TFG de E-commerce
 
 ![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 
-**Trabajo de Fin de Grado** - Plataforma completa de e-commerce especializada en artículos de fútbol con arquitectura MVC, gestión avanzada de inventario y sistema de reseñas interactivo.
-
----
-
-## 📋 Índice
-
-- [Descripción del Proyecto](#-descripción-del-proyecto)
-- [Características Principales](#-características-principales)
-- [Stack Tecnológico](#-stack-tecnológico)
-- [Arquitectura del Sistema](#-arquitectura-del-sistema)
-- [Estructura de Archivos](#-estructura-de-archivos)
-- [Base de Datos](#-base-de-datos)
-- [Instalación](#-instalación)
-- [Uso del Sistema](#-uso-del-sistema)
-- [Ejemplos de Código](#-ejemplos-de-código)
-- [Seguridad](#-seguridad)
-- [Testing](#-testing)
-- [Docker](#-docker)
-- [Mejoras Futuras](#-mejoras-futuras)
-- [Autor](#-autor)
+**Trabajo de Fin de Grado** - Tienda online de artículos de fútbol desarrollada con PHP y MySQL.
 
 ---
 
-## 🚀 Descripción del Proyecto
+## 📋 ¿Qué es SoccerStore?
 
-SoccerStore es una **plataforma de e-commerce moderna** desarrollada como Trabajo de Fin de Grado, especializada en la venta de artículos de fútbol. El sistema implementa un patrón **MVC (Modelo-Vista-Controlador)** robusto con **PHP** y **MySQL**, ofreciendo una experiencia completa tanto para usuarios como administradores.
+SoccerStore es mi proyecto de TFG, una tienda online donde puedes comprar camisetas, pantalones, botas y accesorios de fútbol. He usado PHP para el backend, MySQL para la base de datos y JavaScript para hacer la página más interactiva.
 
-### 🎯 Objetivos del TFG
-- Desarrollar una aplicación web escalable y segura
-- Implementar patrones de diseño profesionales (MVC, DAO)
-- Crear un sistema de gestión integral de inventario
-- Diseñar una interfaz responsive y moderna
-- Establecer medidas de seguridad robustas
+## ✨ Lo que puedes hacer
 
----
+### Si eres usuario normal:
+- 🔐 Registrarte y hacer login
+- 👕 Ver todos los productos del catálogo
+- 🛒 Añadir productos al carrito
+- ⭐ Dejar reseñas y valoraciones
+- ❤️ Guardar productos en tu lista de deseos
+- 📦 Ver el historial de tus pedidos
 
-## ✨ Características Principales
+### Si eres administrador:
+- 📊 Ver estadísticas en el dashboard
+- ➕ Añadir nuevos productos
+- ✏️ Editar productos existentes
+- 🗑️ Eliminar productos
+- 👥 Gestionar usuarios
+- 📈 Ver gráficos de ventas
 
-### 👤 Para Usuarios
-- **Registro y autenticación** segura con validación
-- **Catálogo dinámico** con filtros avanzados (marca, precio, categoría)
-- **Carrito de compras** persistente con sesiones
-- **Sistema de reseñas** interactivo con puntuación por estrellas
-- **Gestión de perfil** con historial de pedidos
-- **Diseño responsive** optimizado para móviles
+## 🛠 Tecnologías que he usado
 
-### 🔧 Para Administradores
-- **Panel de control** completo y intuitivo
-- **Gestión de productos** (CRUD completo)
-- **Control de inventario** con alertas de stock bajo
-- **Gestión de usuarios** y permisos
-- **Estadísticas de ventas** y métricas de negocio
-- **Moderación de reseñas** y contenido
+- **PHP**: Para toda la lógica del servidor
+- **MySQL**: Base de datos donde guardo todo
+- **HTML/CSS**: Para el diseño de las páginas
+- **JavaScript**: Para las interacciones (como las estrellas de valoración)
+- **Bootstrap**: Para que se vea mejor en móviles
+- **Docker**: Para tener todo organizado en contenedores
 
----
-
-## 🛠 Stack Tecnológico
-
-### Backend
-```
-PHP 8.1+          - Lógica del servidor y API
-MySQL 8.0         - Base de datos relacional
-Apache 2.4        - Servidor web
-```
-
-### Frontend
-```
-HTML5             - Estructura semántica
-CSS3              - Estilos y animaciones
-JavaScript ES6+   - Interactividad del cliente
-Bootstrap 5       - Framework responsive
-```
-
-### DevOps y Herramientas
-```
-Docker            - Containerización
-Docker Compose    - Orquestación de servicios
-Git               - Control de versiones
-PHPMyAdmin        - Administración de BD
-```
-
----
-
-## 🏗 Arquitectura del Sistema
-
-### Patrón MVC Implementado
+## 📁 Cómo está organizado el proyecto
 
 ```
-soccerstore/
-├── controllers/          # Controladores (Lógica de negocio)
-│   ├── AuthController.php
-│   ├── ProductController.php
-│   └── AdminController.php
-├── models/              # Modelos (Entidades)
-│   ├── User.php
-│   ├── Product.php
-│   └── Review.php
-├── dao/                 # Data Access Objects
-│   ├── UserDAO.php
-│   ├── ProductDAO.php
-│   └── ReviewDAO.php
-└── views/               # Vistas (Presentación)
-    ├── auth/
-    ├── products/
-    └── admin/
+public/
+├── controllers/           # Aquí está la lógica principal
+│   ├── DashboardController.php
+│   ├── ListaDeseosController.php
+│   ├── ProductsController.php
+│   ├── UsuController.php
+│   └── ValoracionesController.php
+├── db/
+│   └── database.php       # Conexión a la base de datos
+├── models/               # Clases para manejar los datos
+│   ├── estadisticas.php
+│   ├── lista_deseos.php
+│   ├── pedidos.php
+│   ├── productos.php
+│   ├── usuarios.php
+│   └── valoraciones.php
+├── views/                # Las páginas que ve el usuario
+│   ├── addProduct.php
+│   ├── cart.php
+│   ├── dashboard.php
+│   ├── footer.php
+│   ├── header.php
+│   ├── lista_deseos.php
+│   ├── listarProductos.php
+│   ├── login.php
+│   ├── productDetails.php
+│   ├── valorar_producto.php
+│   └── view.php
+└── index.php            # Página principal
 ```
-
-### Flujo de Datos
-```
-Usuario → Controlador → DAO → Modelo → Base de Datos
-                    ↓
-                  Vista ← Datos procesados
-```
-
----
-
-## 📁 Estructura de Archivos
-
-```
-soccerstore/
-├── 📂 config/
-│   ├── database.php         # Configuración BD
-│   └── constants.php        # Constantes globales
-├── 📂 controllers/
-│   ├── AuthController.php   # Autenticación
-│   ├── ProductController.php # Productos
-│   ├── CartController.php   # Carrito
-│   └── AdminController.php  # Administración
-├── 📂 dao/
-│   ├── UserDAO.php         # Acceso datos usuarios
-│   ├── ProductDAO.php      # Acceso datos productos
-│   └── ReviewDAO.php       # Acceso datos reseñas
-├── 📂 models/
-│   ├── User.php           # Modelo usuario
-│   ├── Product.php        # Modelo producto
-│   └── Review.php         # Modelo reseña
-├── 📂 views/
-│   ├── 📂 auth/           # Vistas autenticación
-│   ├── 📂 products/       # Vistas productos
-│   ├── 📂 admin/          # Panel administrador
-│   └── 📂 layouts/        # Plantillas base
-├── 📂 assets/
-│   ├── 📂 css/           # Estilos CSS
-│   ├── 📂 js/            # Scripts JavaScript
-│   └── 📂 images/        # Imágenes del sitio
-├── 📂 uploads/           # Imágenes de productos
-├── 📂 sql/              # Scripts base de datos
-└── 📄 index.php         # Punto de entrada
-```
-
----
 
 ## 🗄 Base de Datos
 
-### Esquema Principal
+He creado estas tablas principales:
 
 ```sql
--- Tabla de usuarios
-CREATE TABLE users (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(50) UNIQUE NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    role ENUM('user', 'admin') DEFAULT 'user',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+-- Usuarios del sistema
+CREATE TABLE Usuario (
+    ID_Usuario INT PRIMARY KEY AUTO_INCREMENT,
+    Nombre_Usuario VARCHAR(50),
+    Email VARCHAR(100),
+    Contraseña VARCHAR(255),
+    Rol ENUM('usuario', 'administrador')
 );
 
--- Tabla de productos
-CREATE TABLE products (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(100) NOT NULL,
-    description TEXT,
-    price DECIMAL(10,2) NOT NULL,
-    brand VARCHAR(50) NOT NULL,
-    category ENUM('camisetas', 'pantalones', 'botas', 'accesorios') NOT NULL,
-    stock INT DEFAULT 0,
-    image_url VARCHAR(255),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+-- Productos de la tienda
+CREATE TABLE Producto (
+    ID_Producto INT PRIMARY KEY AUTO_INCREMENT,
+    Nombre_Producto VARCHAR(100),
+    Descripcion TEXT,
+    Precio DECIMAL(10,2),
+    Marca VARCHAR(50),
+    Stock INT,
+    Imagen VARCHAR(255)
 );
 
--- Tabla de reseñas
-CREATE TABLE reviews (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    user_id INT,
-    product_id INT,
-    rating INT CHECK (rating BETWEEN 1 AND 5),
-    comment TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+-- Valoraciones de los usuarios
+CREATE TABLE Valoracion (
+    ID_Valoracion INT PRIMARY KEY AUTO_INCREMENT,
+    ID_Usuario INT,
+    ID_Producto INT,
+    Puntuacion INT,
+    Comentario TEXT,
+    FOREIGN KEY (ID_Usuario) REFERENCES Usuario(ID_Usuario),
+    FOREIGN KEY (ID_Producto) REFERENCES Producto(ID_Producto)
+);
+
+-- Lista de deseos
+CREATE TABLE Lista_Deseos (
+    ID_Usuario INT,
+    ID_Producto INT,
+    PRIMARY KEY (ID_Usuario, ID_Producto)
 );
 ```
 
-### Triggers Automatizados
+## 🚀 Cómo ejecutar el proyecto
 
-```sql
--- Trigger para actualizar stock automáticamente
-DELIMITER $$
-CREATE TRIGGER update_stock_after_purchase
-AFTER INSERT ON order_items
-FOR EACH ROW
-BEGIN
-    UPDATE products 
-    SET stock = stock - NEW.quantity 
-    WHERE id = NEW.product_id;
-END$$
-DELIMITER ;
-```
-
----
-
-## 🚀 Instalación
-
-### Prerrequisitos
-- Docker y Docker Compose
-- Git
-- Puerto 8080 disponible
-
-### Instalación con Docker (Recomendado)
+### Con Docker (más fácil):
 
 ```bash
-# 1. Clonar el repositorio
-git clone https://github.com/tu-usuario/soccerstore.git
-cd soccerstore
+# Clonar el repositorio
+git clone [tu-repositorio]
 
-# 2. Construir y levantar contenedores
-docker-compose up -d --build
+# Levantar los contenedores
+docker-compose up -d
 
-# 3. Importar base de datos
-docker exec -i soccerstore_db mysql -u root -p soccerstore < sql/soccerstore.sql
-
-# 4. Acceder a la aplicación
-# Web: http://localhost:8080
-# PHPMyAdmin: http://localhost:8081
+# La página estará en: http://localhost:8080
 ```
 
-### Instalación Manual
+### Manual:
+1. Instalar XAMPP o similar
+2. Crear una base de datos llamada "SoccerStore"
+3. Importar el archivo SQL
+4. Poner los archivos en htdocs
+5. Abrir en el navegador
 
-```bash
-# 1. Configurar servidor web (Apache/Nginx)
-# 2. Crear base de datos MySQL
-CREATE DATABASE soccerstore;
+## 📊 Algunos datos del proyecto
 
-# 3. Importar esquema
-mysql -u root -p soccerstore < sql/soccerstore.sql
+- **Tiempo que me llevó**: Unos 3-4 meses
+- **Líneas de código**: Aproximadamente 3,000-4,000
+- **Archivos PHP**: 20+
+- **Tablas en la BD**: 6 principales
+- **Funcionalidades**: Login, carrito, valoraciones, administración
 
-# 4. Configurar archivo de conexión
-cp config/database.example.php config/database.php
-# Editar credenciales de BD
+## 🎯 Ejemplos de código
 
-# 5. Configurar permisos
-chmod 755 uploads/
-```
-
----
-
-## 💻 Uso del Sistema
-
-### Usuario Final
-1. **Registro**: Crear cuenta con email y contraseña
-2. **Explorar**: Navegar catálogo con filtros
-3. **Comprar**: Añadir productos al carrito
-4. **Reseñar**: Valorar productos comprados
-5. **Perfil**: Gestionar datos y pedidos
-
-### Administrador
-1. **Login**: Acceso con credenciales admin
-2. **Dashboard**: Ver métricas y estadísticas
-3. **Productos**: Gestionar catálogo completo
-4. **Usuarios**: Administrar cuentas de usuario
-5. **Inventario**: Controlar stock y alertas
-
-### Credenciales por Defecto
-```
-Admin:
-- Usuario: admin@soccerstore.com
-- Contraseña: admin123
-
-Usuario Demo:
-- Usuario: demo@soccerstore.com
-- Contraseña: demo123
-```
-
----
-
-## 🔧 Ejemplos de Código
-
-### Controlador de Productos (PHP)
-
+### Cómo conecto a la base de datos:
 ```php
 <?php
-class ProductController {
-    private $productDAO;
+class Database {
+    private $host = 'mariadb';
+    private $dbname = 'SoccerStore';
+    private $username = 'root';
+    private $password = 'secret';
     
-    public function __construct() {
-        $this->productDAO = new ProductDAO();
-    }
-    
-    public function getProducts($filters = []) {
+    public function getConnection() {
         try {
-            $products = $this->productDAO->getAllProducts($filters);
-            return $this->jsonResponse($products);
-        } catch (Exception $e) {
-            return $this->errorResponse($e->getMessage());
+            $pdo = new PDO("mysql:host=$this->host;dbname=$this->dbname", 
+                          $this->username, $this->password);
+            return $pdo;
+        } catch(PDOException $e) {
+            echo "Error: " . $e->getMessage();
         }
-    }
-    
-    public function createProduct($data) {
-        // Validación de datos
-        $validator = new ProductValidator();
-        if (!$validator->validate($data)) {
-            return $this->errorResponse('Datos inválidos');
-        }
-        
-        // Crear producto
-        $product = new Product($data);
-        $result = $this->productDAO->save($product);
-        
-        return $this->jsonResponse(['id' => $result]);
     }
 }
 ?>
 ```
 
-### DAO con Prepared Statements
-
+### Cómo añado productos al carrito:
 ```php
-<?php
-class ProductDAO {
-    private $connection;
+public function añadirAlCarrito($idProducto, $cantidad = 1) {
+    if (!isset($_SESSION['carrito'])) {
+        $_SESSION['carrito'] = array();
+    }
     
-    public function getAllProducts($filters = []) {
-        $query = "SELECT * FROM products WHERE 1=1";
-        $params = [];
-        
-        if (!empty($filters['brand'])) {
-            $query .= " AND brand = ?";
-            $params[] = $filters['brand'];
-        }
-        
-        if (!empty($filters['category'])) {
-            $query .= " AND category = ?";
-            $params[] = $filters['category'];
-        }
-        
-        if (!empty($filters['max_price'])) {
-            $query .= " AND price <= ?";
-            $params[] = $filters['max_price'];
-        }
-        
-        $stmt = $this->connection->prepare($query);
-        $stmt->execute($params);
-        
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if (isset($_SESSION['carrito'][$idProducto])) {
+        $_SESSION['carrito'][$idProducto] += $cantidad;
+    } else {
+        $_SESSION['carrito'][$idProducto] = $cantidad;
     }
 }
-?>
 ```
 
-### Sistema de Reseñas (JavaScript)
-
+### Sistema de estrellas para valoraciones:
 ```javascript
-class ReviewSystem {
-    constructor() {
-        this.initStarRating();
-    }
+function valorarProducto(puntuacion) {
+    const estrellas = document.querySelectorAll('.estrella');
     
-    initStarRating() {
-        document.querySelectorAll('.star-rating').forEach(rating => {
-            const stars = rating.querySelectorAll('.star');
-            
-            stars.forEach((star, index) => {
-                star.addEventListener('click', () => {
-                    this.setRating(stars, index + 1);
-                });
-                
-                star.addEventListener('mouseover', () => {
-                    this.highlightStars(stars, index + 1);
-                });
-            });
-        });
-    }
-    
-    setRating(stars, rating) {
-        stars.forEach((star, index) => {
-            star.classList.toggle('active', index < rating);
-        });
-        
-        // Enviar rating al servidor
-        this.submitRating(rating);
-    }
-    
-    async submitRating(rating) {
-        try {
-            const response = await fetch('/api/reviews', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    product_id: this.productId,
-                    rating: rating,
-                    comment: document.querySelector('#review-comment').value
-                })
-            });
-            
-            const result = await response.json();
-            this.showFeedback(result.success);
-        } catch (error) {
-            console.error('Error al enviar reseña:', error);
+    estrellas.forEach((estrella, index) => {
+        if (index < puntuacion) {
+            estrella.classList.add('activa');
+        } else {
+            estrella.classList.remove('activa');
         }
-    }
-}
-```
-
-### CSS Grid Responsive
-
-```css
-/* Layout principal con CSS Grid */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
-}
-
-.product-card {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-/* Sistema de estrellas */
-.star-rating {
-    display: flex;
-    gap: 0.25rem;
-}
-
-.star {
-    font-size: 1.5rem;
-    color: #ddd;
-    cursor: pointer;
-    transition: color 0.2s ease;
-}
-
-.star:hover,
-.star.active {
-    color: #ffd700;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    .product-grid {
-        grid-template-columns: 1fr;
-        padding: 1rem;
-    }
+    });
     
-    .navbar {
-        flex-direction: column;
-    }
+    // Enviar la valoración al servidor
+    fetch('valorar.php', {
+        method: 'POST',
+        body: JSON.stringify({
+            producto_id: productoId,
+            puntuacion: puntuacion
+        })
+    });
 }
 ```
 
----
+## 🔒 Seguridad básica
 
-## 🔒 Seguridad
+He implementado algunas medidas de seguridad básicas:
 
-### Medidas Implementadas
-
-#### Autenticación y Autorización
 ```php
-// Hash seguro de contraseñas
-$hashedPassword = password_hash($password, PASSWORD_ARGON2ID);
+// Proteger contraseñas
+$contraseña_hash = password_hash($contraseña, PASSWORD_DEFAULT);
 
-// Verificación de contraseña
-if (password_verify($inputPassword, $hashedPassword)) {
-    // Acceso concedido
+// Verificar login
+if (password_verify($contraseña_input, $contraseña_hash)) {
+    // Login correcto
 }
 
-// Control de sesiones
-session_start();
-if (!isset($_SESSION['user_id'])) {
-    header('Location: /login');
-    exit;
-}
-```
-
-#### Prevención de Inyección SQL
-```php
-// Prepared Statements
-$stmt = $pdo->prepare("SELECT * FROM users WHERE email = ? AND active = 1");
+// Evitar inyección SQL
+$stmt = $pdo->prepare("SELECT * FROM Usuario WHERE email = ?");
 $stmt->execute([$email]);
 ```
 
-#### Validación y Sanitización
-```php
-class InputValidator {
-    public static function sanitizeString($input) {
-        return htmlspecialchars(trim($input), ENT_QUOTES, 'UTF-8');
-    }
-    
-    public static function validateEmail($email) {
-        return filter_var($email, FILTER_VALIDATE_EMAIL);
-    }
-    
-    public static function validatePrice($price) {
-        return is_numeric($price) && $price > 0;
-    }
-}
-```
+## 🐛 Problemas que tuve y cómo los solucioné
 
-#### Protección CSRF
-```php
-// Generar token CSRF
-$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+1. **Error de conexión a la BD**: Al principio tenía problemas con Docker, tuve que cambiar el host de 'localhost' a 'mariadb'
+2. **Sesiones que no funcionaban**: No tenía `session_start()` en todos los archivos que lo necesitaban
+3. **Imágenes que no se veían**: Problemas con las rutas, las puse en una carpeta uploads/
+4. **Responsive**: Tuve que usar Bootstrap para que se viera bien en móviles
 
-// Validar token
-if (!hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
-    throw new Exception('Token CSRF inválido');
-}
-```
+## 🔧 Cosas que me gustaría mejorar
 
----
+- [ ] Añadir un sistema de pagos real
+- [ ] Hacer que las notificaciones sean más bonitas
+- [ ] Añadir más filtros en el catálogo
+- [ ] Mejorar el diseño del dashboard
+- [ ] Añadir más validaciones en los formularios
+- [ ] Hacer tests para comprobar que todo funciona
 
-## 🧪 Testing
+## 📱 Capturas del proyecto
 
-### Estructura de Pruebas
-```
-tests/
-├── unit/              # Pruebas unitarias
-│   ├── UserTest.php
-│   └── ProductTest.php
-├── integration/       # Pruebas de integración
-│   └── DatabaseTest.php
-└── functional/        # Pruebas funcionales
-    └── AuthTest.php
-```
+*Aquí podrías añadir algunas capturas de pantalla de tu aplicación*
 
-### Ejemplo de Test Unitario
-```php
-<?php
-use PHPUnit\Framework\TestCase;
+## 👨‍💻 Sobre mí
 
-class ProductTest extends TestCase {
-    public function testProductCreation() {
-        $productData = [
-            'name' => 'Nike Air Max',
-            'price' => 129.99,
-            'brand' => 'Nike'
-        ];
-        
-        $product = new Product($productData);
-        
-        $this->assertEquals('Nike Air Max', $product->getName());
-        $this->assertEquals(129.99, $product->getPrice());
-        $this->assertEquals('Nike', $product->getBrand());
-    }
-    
-    public function testPriceValidation() {
-        $this->expectException(InvalidArgumentException::class);
-        
-        $product = new Product([
-            'name' => 'Test',
-            'price' => -10,  // Precio inválido
-            'brand' => 'Test'
-        ]);
-    }
-}
-```
+Este es mi primer proyecto grande con PHP y MySQL. He aprendido mucho haciéndolo, especialmente sobre:
+- Cómo estructurar un proyecto web
+- Trabajar con bases de datos
+- Manejar sesiones y cookies
+- Hacer páginas responsive
+- Usar Docker para desarrollo
 
-### Ejecutar Tests
-```bash
-# Instalar PHPUnit
-composer require --dev phpunit/phpunit
+## 🎓 Conclusión
 
-# Ejecutar todas las pruebas
-./vendor/bin/phpunit tests/
-
-# Ejecutar pruebas específicas
-./vendor/bin/phpunit tests/unit/ProductTest.php
-```
+SoccerStore ha sido un proyecto muy interesante donde he podido aplicar todo lo que he aprendido durante la carrera. Aunque no es perfecto, estoy contento con el resultado y creo que demuestra que puedo desarrollar una aplicación web completa desde cero.
 
 ---
 
-## 🐳 Docker
-
-### docker-compose.yml
-```yaml
-version: '3.8'
-
-services:
-  web:
-    build: .
-    container_name: soccerstore_web
-    ports:
-      - "8080:80"
-    volumes:
-      - .:/var/www/html
-    depends_on:
-      - db
-    environment:
-      - DB_HOST=db
-      - DB_NAME=soccerstore
-      - DB_USER=root
-      - DB_PASS=rootpassword
-
-  db:
-    image: mysql:8.0
-    container_name: soccerstore_db
-    ports:
-      - "3306:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: soccerstore
-    volumes:
-      - db_data:/var/lib/mysql
-      - ./sql:/docker-entrypoint-initdb.d
-
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    container_name: soccerstore_pma
-    ports:
-      - "8081:80"
-    environment:
-      PMA_HOST: db
-      MYSQL_ROOT_PASSWORD: rootpassword
-    depends_on:
-      - db
-
-volumes:
-  db_data:
-```
-
-### Dockerfile
-```dockerfile
-FROM php:8.1-apache
-
-# Instalar extensiones necesarias
-RUN docker-php-ext-install pdo pdo_mysql mysqli
-
-# Habilitar mod_rewrite
-RUN a2enmod rewrite
-
-# Configurar directorio de trabajo
-WORKDIR /var/www/html
-
-# Copiar archivos del proyecto
-COPY . .
-
-# Configurar permisos
-RUN chown -R www-data:www-data /var/www/html
-RUN chmod -R 755 /var/www/html
-
-EXPOSE 80
-```
-
-### Comandos Útiles
-```bash
-# Construir imagen
-docker-compose build
-
-# Levantar servicios
-docker-compose up -d
-
-# Ver logs
-docker-compose logs web
-
-# Ejecutar comandos en contenedor
-docker exec -it soccerstore_web bash
-
-# Backup de base de datos
-docker exec soccerstore_db mysqldump -u root -p soccerstore > backup.sql
-
-# Parar servicios
-docker-compose down
-```
-
----
-
-## 📊 Métricas y Estadísticas
-
-### Métricas de Desarrollo
-- **Líneas de código**: ~5,000 líneas
-- **Archivos PHP**: 25+
-- **Tablas de BD**: 8 principales
-- **Endpoints API**: 15+
-- **Tiempo desarrollo**: 4 meses
-
-### Funcionalidades Implementadas
-- ✅ Sistema de autenticación completo
-- ✅ CRUD de productos con imágenes
-- ✅ Carrito de compras persistente
-- ✅ Sistema de reseñas interactivo
-- ✅ Panel de administración
-- ✅ Diseño responsive
-- ✅ Validación de formularios
-- ✅ Medidas de seguridad
-- ✅ Dockerización completa
-
----
-
-## 🚀 Mejoras Futuras
-
-### Funcionalidades Planificadas
-- [ ] **Sistema de pagos** con PayPal/Stripe
-- [ ] **Notificaciones push** para ofertas
-- [ ] **Chat en vivo** para soporte
-- [ ] **Recomendaciones IA** personalizadas
-- [ ] **API REST** completa para móviles
-- [ ] **Sistema de cupones** y descuentos
-- [ ] **Multidioma** (ES/EN/FR)
-- [ ] **Analytics avanzados** con gráficos
-
-### Optimizaciones Técnicas
-- [ ] **Cache Redis** para mejor rendimiento
-- [ ] **CDN** para imágenes
-- [ ] **Lazy loading** de productos
-- [ ] **PWA** (Progressive Web App)
-- [ ] **Tests automatizados** con CI/CD
-- [ ] **Monitoreo** con logs estructurados
-
----
-
-## 📈 Conclusiones del TFG
-
-### Objetivos Cumplidos
-✅ **Aplicación funcional completa** con todas las características planificadas  
-✅ **Arquitectura MVC sólida** siguiendo buenas prácticas de desarrollo  
-✅ **Interfaz moderna y responsive** con excelente experiencia de usuario  
-✅ **Seguridad robusta** con validación y protección contra vulnerabilidades  
-✅ **Base de datos optimizada** con relaciones bien definidas y triggers automáticos  
-✅ **Documentación completa** del proyecto y código  
-
-### Aprendizajes Clave
-- **Patrones de diseño** aplicados en entornos reales
-- **Desarrollo full-stack** con tecnologías modernas
-- **Gestión de proyectos** y metodologías ágiles
-- **Optimización de rendimiento** y escalabilidad
-- **Implementación de seguridad** en aplicaciones web
-- **DevOps básico** con Docker y containerización
-
-### Valor Profesional
-Este proyecto demuestra competencias técnicas sólidas en desarrollo web moderno, desde la planificación y diseño hasta la implementación y despliegue, preparando para el mercado laboral en desarrollo de software especializándose en e-commerce de artículos deportivos.
-
----
-
-## 👨‍💻 Autor
-
-**[Tu Nombre]**  
-📧 Email: [tu.email@ejemplo.com]  
-🔗 LinkedIn: [tu-perfil-linkedin]  
-🐙 GitHub: [tu-usuario-github]  
-
----
-
-### 📄 Licencia
-
-Este proyecto fue desarrollado como Trabajo de Fin de Grado para [Universidad/Instituto].  
-Código disponible bajo licencia MIT para fines educativos.
-
----
-
-<div align="center">
-
-### 🌟 ¡Gracias por revisar SoccerStore! 
-
-**Desarrollado con ❤️ para el TFG**
-
-[⬆️ Volver arriba](#-soccerstore---e-commerce-de-artículos-de-fútbol)
-
-</div>
+**Desarrollado como TFG - [Tu Nombre]**  
+📧 [tu.email@ejemplo.com]  
+🔗 [Tu perfil de LinkedIn]
