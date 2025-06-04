@@ -10,27 +10,27 @@
 
 ---
 
-## 📋 ¿Qué es SoccerStore?
+## ¿Qué es SoccerStore?
 
 SoccerStore es mi proyecto de TFG, una tienda online donde puedes comprar camisetas de fútbol. He usado PHP para el backend, MySQL para la base de datos y algo de JavaScript para hacer la página más interactiva.
 
-## ✨ Lo que puedes hacer
+## Lo que puedes hacer
 
 ### Si eres usuario normal:
-- 🔐 Registrarte y hacer login
-- 👕 Ver todos los productos del catálogo
-- 🛒 Añadir productos al carrito
-- ⭐ Dejar reseñas y valoraciones
-- ❤️ Guardar productos en tu lista de deseos
-- 📦 Ver el historial de tus pedidos
+- Registrarte y hacer login
+- Ver todos los productos del catálogo
+- Añadir productos al carrito
+- Dejar reseñas y valoraciones
+- ❤Guardar productos en tu lista de deseos
+- Ver el historial de tus pedidos
 
 ### Si eres administrador:
-- 📊 Ver estadísticas en el dashboard
-- ➕ Añadir nuevos productos
-- ✏️ Editar productos existentes
-- 🗑️ Eliminar productos
-- 👥 Gestionar usuarios
-- 📈 Ver todas las ventas
+- Ver estadísticas en el dashboard
+- Añadir nuevos productos
+- Editar productos existentes
+- Eliminar productos
+- Gestionar usuarios
+- Ver todas las ventas
 
 ## 🛠 Tecnologías que he usado
 
@@ -132,7 +132,7 @@ docker-compose up -d
 # La página estará en: http://localhost:8080
 ```
 
-## 📊 Algunos datos del proyecto
+## Algunos datos del proyecto
 
 - **Tiempo que me llevó**: Unos 3-4 meses
 - **Líneas de código**: Aproximadamente 3,000-4,000
@@ -140,7 +140,7 @@ docker-compose up -d
 - **Tablas en la BD**: 6 principales
 - **Funcionalidades**: Login, carrito, valoraciones, administración
 
-## 🎯 Ejemplos de código
+## Ejemplos de código
 
 ### Cómo conecto a la base de datos:
 ```php
@@ -221,7 +221,7 @@ $stmt = $pdo->prepare("SELECT * FROM Usuario WHERE email = ?");
 $stmt->execute([$email]);
 ```
 
-## 🐛 Problemas que tuve y cómo los solucioné
+## Problemas que tuve y cómo los solucioné
 
 1. **Error de conexión a la BD**: Al principio tenía problemas con Docker, tuve que cambiar el host de 'localhost' a 'mariadb'
 2. **Sesiones que no funcionaban**: No tenía `session_start()` en todos los archivos que lo necesitaban
@@ -237,6 +237,15 @@ $stmt->execute([$email]);
 - [ ] Hacer tests para comprobar que todo funciona
 
 ## 📱 Capturas del proyecto
+<img width="959" alt="image" src="https://github.com/user-attachments/assets/ef654685-5d88-4144-855b-a58828c771a4" />
+<img width="959" alt="image" src="https://github.com/user-attachments/assets/a5eac1fb-a444-4a5c-8987-26f4e6c52b8a" />
+<img width="959" alt="image" src="https://github.com/user-attachments/assets/4dde0a07-771d-4494-959e-4d26badf2a03" />
+<img width="959" alt="image" src="https://github.com/user-attachments/assets/08abf0e8-6aea-4201-9ec3-bfcbbe256e5c" />
+<img width="959" alt="image" src="https://github.com/user-attachments/assets/94870b65-5cd3-47ed-ad66-80608e790012" />
+<img width="959" alt="image" src="https://github.com/user-attachments/assets/68468d0b-865a-4027-a965-6a195aadc43b" />
+<img width="959" alt="image" src="https://github.com/user-attachments/assets/2b46120c-dafa-46a8-875f-a74294c98ead" />
+
+
 
 
 
