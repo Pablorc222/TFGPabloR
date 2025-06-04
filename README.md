@@ -1,4 +1,4 @@
-# 👟 FootStore - E-commerce de Zapatillas
+# ⚽ SoccerStore - E-commerce de Artículos de Fútbol
 
 ![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
@@ -7,7 +7,7 @@
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 
-**Trabajo de Fin de Grado** - Plataforma completa de e-commerce especializada en calzado deportivo con arquitectura MVC, gestión avanzada de inventario y sistema de reseñas interactivo.
+**Trabajo de Fin de Grado** - Plataforma completa de e-commerce especializada en artículos de fútbol con arquitectura MVC, gestión avanzada de inventario y sistema de reseñas interactivo.
 
 ---
 
@@ -32,7 +32,7 @@
 
 ## 🚀 Descripción del Proyecto
 
-FootStore es una **plataforma de e-commerce moderna** desarrollada como Trabajo de Fin de Grado, especializada en la venta de calzado deportivo. El sistema implementa un patrón **MVC (Modelo-Vista-Controlador)** robusto con **PHP** y **MySQL**, ofreciendo una experiencia completa tanto para usuarios como administradores.
+SoccerStore es una **plataforma de e-commerce moderna** desarrollada como Trabajo de Fin de Grado, especializada en la venta de artículos de fútbol. El sistema implementa un patrón **MVC (Modelo-Vista-Controlador)** robusto con **PHP** y **MySQL**, ofreciendo una experiencia completa tanto para usuarios como administradores.
 
 ### 🎯 Objetivos del TFG
 - Desarrollar una aplicación web escalable y segura
@@ -47,7 +47,7 @@ FootStore es una **plataforma de e-commerce moderna** desarrollada como Trabajo 
 
 ### 👤 Para Usuarios
 - **Registro y autenticación** segura con validación
-- **Catálogo dinámico** con filtros avanzados (marca, precio, talla)
+- **Catálogo dinámico** con filtros avanzados (marca, precio, categoría)
 - **Carrito de compras** persistente con sesiones
 - **Sistema de reseñas** interactivo con puntuación por estrellas
 - **Gestión de perfil** con historial de pedidos
@@ -95,7 +95,7 @@ PHPMyAdmin        - Administración de BD
 ### Patrón MVC Implementado
 
 ```
-footstore/
+soccerstore/
 ├── controllers/          # Controladores (Lógica de negocio)
 │   ├── AuthController.php
 │   ├── ProductController.php
@@ -126,7 +126,7 @@ Usuario → Controlador → DAO → Modelo → Base de Datos
 ## 📁 Estructura de Archivos
 
 ```
-footstore/
+soccerstore/
 ├── 📂 config/
 │   ├── database.php         # Configuración BD
 │   └── constants.php        # Constantes globales
@@ -181,6 +181,7 @@ CREATE TABLE products (
     description TEXT,
     price DECIMAL(10,2) NOT NULL,
     brand VARCHAR(50) NOT NULL,
+    category ENUM('camisetas', 'pantalones', 'botas', 'accesorios') NOT NULL,
     stock INT DEFAULT 0,
     image_url VARCHAR(255),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -228,14 +229,14 @@ DELIMITER ;
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/tu-usuario/footstore.git
-cd footstore
+git clone https://github.com/tu-usuario/soccerstore.git
+cd soccerstore
 
 # 2. Construir y levantar contenedores
 docker-compose up -d --build
 
 # 3. Importar base de datos
-docker exec -i footstore_db mysql -u root -p footstore < sql/footstore.sql
+docker exec -i soccerstore_db mysql -u root -p soccerstore < sql/soccerstore.sql
 
 # 4. Acceder a la aplicación
 # Web: http://localhost:8080
@@ -247,10 +248,10 @@ docker exec -i footstore_db mysql -u root -p footstore < sql/footstore.sql
 ```bash
 # 1. Configurar servidor web (Apache/Nginx)
 # 2. Crear base de datos MySQL
-CREATE DATABASE footstore;
+CREATE DATABASE soccerstore;
 
 # 3. Importar esquema
-mysql -u root -p footstore < sql/footstore.sql
+mysql -u root -p soccerstore < sql/soccerstore.sql
 
 # 4. Configurar archivo de conexión
 cp config/database.example.php config/database.php
@@ -281,11 +282,11 @@ chmod 755 uploads/
 ### Credenciales por Defecto
 ```
 Admin:
-- Usuario: admin@footstore.com
+- Usuario: admin@soccerstore.com
 - Contraseña: admin123
 
 Usuario Demo:
-- Usuario: demo@footstore.com
+- Usuario: demo@soccerstore.com
 - Contraseña: demo123
 ```
 
@@ -344,6 +345,11 @@ class ProductDAO {
         if (!empty($filters['brand'])) {
             $query .= " AND brand = ?";
             $params[] = $filters['brand'];
+        }
+        
+        if (!empty($filters['category'])) {
+            $query .= " AND category = ?";
+            $params[] = $filters['category'];
         }
         
         if (!empty($filters['max_price'])) {
@@ -601,7 +607,7 @@ version: '3.8'
 services:
   web:
     build: .
-    container_name: footstore_web
+    container_name: soccerstore_web
     ports:
       - "8080:80"
     volumes:
@@ -610,25 +616,25 @@ services:
       - db
     environment:
       - DB_HOST=db
-      - DB_NAME=footstore
+      - DB_NAME=soccerstore
       - DB_USER=root
       - DB_PASS=rootpassword
 
   db:
     image: mysql:8.0
-    container_name: footstore_db
+    container_name: soccerstore_db
     ports:
       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: footstore
+      MYSQL_DATABASE: soccerstore
     volumes:
       - db_data:/var/lib/mysql
       - ./sql:/docker-entrypoint-initdb.d
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: footstore_pma
+    container_name: soccerstore_pma
     ports:
       - "8081:80"
     environment:
@@ -676,10 +682,10 @@ docker-compose up -d
 docker-compose logs web
 
 # Ejecutar comandos en contenedor
-docker exec -it footstore_web bash
+docker exec -it soccerstore_web bash
 
 # Backup de base de datos
-docker exec footstore_db mysqldump -u root -p footstore > backup.sql
+docker exec soccerstore_db mysqldump -u root -p soccerstore > backup.sql
 
 # Parar servicios
 docker-compose down
@@ -750,7 +756,7 @@ docker-compose down
 - **DevOps básico** con Docker y containerización
 
 ### Valor Profesional
-Este proyecto demuestra competencias técnicas sólidas en desarrollo web moderno, desde la planificación y diseño hasta la implementación y despliegue, preparando para el mercado laboral en desarrollo de software.
+Este proyecto demuestra competencias técnicas sólidas en desarrollo web moderno, desde la planificación y diseño hasta la implementación y despliegue, preparando para el mercado laboral en desarrollo de software especializándose en e-commerce de artículos deportivos.
 
 ---
 
@@ -772,10 +778,10 @@ Código disponible bajo licencia MIT para fines educativos.
 
 <div align="center">
 
-### 🌟 ¡Gracias por revisar FootStore! 
+### 🌟 ¡Gracias por revisar SoccerStore! 
 
 **Desarrollado con ❤️ para el TFG**
 
-[⬆️ Volver arriba](#-footstore---e-commerce-de-zapatillas)
+[⬆️ Volver arriba](#-soccerstore---e-commerce-de-artículos-de-fútbol)
 
 </div>
