@@ -21,7 +21,7 @@ SoccerStore es mi proyecto de TFG, una tienda online donde puedes comprar camise
 - Ver todos los productos del catálogo
 - Añadir productos al carrito
 - Dejar reseñas y valoraciones
-- ❤Guardar productos en tu lista de deseos
+- Guardar productos en tu lista de deseos
 - Ver el historial de tus pedidos
 
 ### Si eres administrador:
