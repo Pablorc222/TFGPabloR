@@ -30,7 +30,7 @@ SoccerStore es mi proyecto de TFG, una tienda online donde puedes comprar camise
 - ✏️ Editar productos existentes
 - 🗑️ Eliminar productos
 - 👥 Gestionar usuarios
-- 📈 Ver gráficos de ventas
+- 📈 Ver todas las ventas
 
 ## 🛠 Tecnologías que he usado
 
@@ -38,7 +38,6 @@ SoccerStore es mi proyecto de TFG, una tienda online donde puedes comprar camise
 - **MySQL**: Base de datos donde guardo todo
 - **HTML/CSS**: Para el diseño de las páginas
 - **JavaScript**: Para las interacciones (como las estrellas de valoración)
-- **Bootstrap**: Para que se vea mejor en móviles
 - **Docker**: Para tener todo organizado en contenedores
 
 ## 📁 Cómo está organizado el proyecto
@@ -133,13 +132,6 @@ docker-compose up -d
 # La página estará en: http://localhost:8080
 ```
 
-### Manual:
-1. Instalar XAMPP o similar
-2. Crear una base de datos llamada "SoccerStore"
-3. Importar el archivo SQL
-4. Poner los archivos en htdocs
-5. Abrir en el navegador
-
 ## 📊 Algunos datos del proyecto
 
 - **Tiempo que me llevó**: Unos 3-4 meses
@@ -155,7 +147,7 @@ docker-compose up -d
 <?php
 class Database {
     private $host = 'mariadb';
-    private $dbname = 'SoccerStore';
+    private $dbname = 'FootStore';
     private $username = 'root';
     private $password = 'secret';
     
