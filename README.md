@@ -254,6 +254,4 @@ SoccerStore ha sido un proyecto muy interesante donde he podido aplicar todo lo 
 
 ---
 
-**Desarrollado como TFG - [Tu Nombre]**  
-📧 [tu.email@ejemplo.com]  
-🔗 [Tu perfil de LinkedIn]
+**Desarrollado como TFG - [Pablo Rodríguez Crespo]**  
