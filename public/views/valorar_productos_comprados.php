@@ -41,8 +41,8 @@ $productos = isset($data['productos']) ? $data['productos'] : [];
                         <div style="font-weight: bold; margin-bottom: 10px;"><?php echo htmlspecialchars($producto['Nombre_Producto']); ?></div>
                         <div style="color: #437F97; font-weight: bold; margin-bottom: 15px;"><?php echo htmlspecialchars($producto['Precio']); ?> €</div>
                         
-                        <div style="text-align: center; margin-bottom: 10px;">
-                            <?php for ($i = 5; $i >= 1; $i--): ?>
+                        <div style="text-align: center; margin-bottom: 10px; direction: rtl;">
+                            <?php for ($i = 1; $i <= 5; $i++): ?>
                                 <input type="radio" id="star<?php echo $i; ?>-<?php echo $producto['ID_Producto']; ?>" name="valoraciones[<?php echo $producto['ID_Producto']; ?>][puntuacion]" value="<?php echo $i; ?>" style="display: none;">
                                 <label for="star<?php echo $i; ?>-<?php echo $producto['ID_Producto']; ?>" style="cursor: pointer; font-size: 24px; color: #ddd;">&#9733;</label>
                             <?php endfor; ?>
