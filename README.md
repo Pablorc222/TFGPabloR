@@ -237,18 +237,12 @@ $stmt->execute([$email]);
 - [ ] Hacer tests para comprobar que todo funciona
 
 ## 📱 Capturas del proyecto
-<img width="959" alt="image" src="https://github.com/user-attachments/assets/ef654685-5d88-4144-855b-a58828c771a4" />
 <img width="959" alt="image" src="https://github.com/user-attachments/assets/a5eac1fb-a444-4a5c-8987-26f4e6c52b8a" />
 <img width="959" alt="image" src="https://github.com/user-attachments/assets/4dde0a07-771d-4494-959e-4d26badf2a03" />
 <img width="959" alt="image" src="https://github.com/user-attachments/assets/08abf0e8-6aea-4201-9ec3-bfcbbe256e5c" />
 <img width="959" alt="image" src="https://github.com/user-attachments/assets/94870b65-5cd3-47ed-ad66-80608e790012" />
 <img width="959" alt="image" src="https://github.com/user-attachments/assets/68468d0b-865a-4027-a965-6a195aadc43b" />
 <img width="959" alt="image" src="https://github.com/user-attachments/assets/2b46120c-dafa-46a8-875f-a74294c98ead" />
-
-
-
-
-
 ## 👨‍💻 Sobre mí
 
 Este es mi primer proyecto grande con PHP y MySQL. He aprendido mucho haciéndolo, especialmente sobre:
