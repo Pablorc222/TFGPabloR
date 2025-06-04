@@ -12,7 +12,7 @@
 
 ## 📋 ¿Qué es SoccerStore?
 
-SoccerStore es mi proyecto de TFG, una tienda online donde puedes comprar camisetas, pantalones, botas y accesorios de fútbol. He usado PHP para el backend, MySQL para la base de datos y JavaScript para hacer la página más interactiva.
+SoccerStore es mi proyecto de TFG, una tienda online donde puedes comprar camisetas de fútbol. He usado PHP para el backend, MySQL para la base de datos y JavaScript para hacer la página más interactiva.
 
 ## ✨ Lo que puedes hacer
 
