@@ -74,12 +74,12 @@ if(isset($_SESSION['usuario'])) {
                     throw new Exception("Método no encontrado");
                 }
             } catch(Exception $e) {
-                $productController = new ProductController();  // Cambiado
+                $productController = new ProductController();  
                 $productController->getAllProducts();
             }
         }
     } else {
-        $productController = new ProductController();  // Cambiado
+        $productController = new ProductController();  
         $productController->getAllProducts();
     }
 }
